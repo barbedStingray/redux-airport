@@ -17,7 +17,10 @@ export default function AirlineTable() {
                 </thead>
                 <tbody>
                     {airlines.map((plane) =>
-                        <tr key={plane}><td>{plane}</td></tr>
+                        <tr key={plane.airplaneNumber}>
+                            <td>{plane.airlineName}</td>
+                            <td>{plane.airplaneNumber}</td>
+                        </tr>
                     )}
                 </tbody>
             </table>

@@ -3,12 +3,21 @@ import ReactDOM from 'react-dom/client';
 import App from './components/App/App';
 
 /** TODO: import REDUX **/
+import { Provider } from 'react-redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import logger from 'redux-logger';
 
 
 /** TODO: Add REDUCERS */
 
 
 /** TODO: Create store */
+const reduxStore = createStore(
+    combineReducers({
+        // list of reducers
+    }),
+    applyMiddleware(logger)
+);
 
 
 
@@ -16,6 +25,8 @@ import App from './components/App/App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <App />
+        <Provider store={reduxStore}>
+            <App />
+        </Provider>
     </React.StrictMode>
 );

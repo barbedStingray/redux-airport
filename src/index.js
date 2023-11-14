@@ -10,11 +10,21 @@ import logger from 'redux-logger';
 
 /** TODO: Add REDUCERS */
 
+const airlines = (state = [], action) => {
+    if(action.type === 'ADD_AIRLINE') {
+        return [...state, action.payload];
+    }
+    
+    return state;
+}
+
 
 /** TODO: Create store */
 const reduxStore = createStore(
     combineReducers({
         // list of reducers
+        airlines
+
     }),
     applyMiddleware(logger)
 );
